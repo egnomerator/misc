@@ -1,0 +1,73 @@
+toc_my_wiki.py
+(and accompanying files in package; one-folder console app)
+
+---------------
+version 1 (phase 1) done:
+---------------
+-gets by-level collection of root-dir set(sub-dirs) and set(files)
+-constructs TOC from tree
+-overwrites/creates _Sidebar file in top level with markdown-formatted 
+ TOC string
+
+
+___________________________________________________________________________
+
+Phase 1
+___________________________________________________________________________
+GitHub Wiki Organization Management Plan
+-----------------------------------------
+Process
+	-Goal:	to implement automation such that whenever I create a new
+			wiki page, I perform the following process
+			
+			The Process:
+						-GitHub
+							-add new (broken) wiki link to Home wiki
+							-click broken link to create the wiki
+							-add temp text
+							-save wiki
+						-Local
+							-GitHub Desktop Sync
+							-move new wiki file to desired sub directory
+							-create matching directory (if applicable)
+								-match by name of file and name of dir
+****************************-run automation script
+							-GitHub Desktop Sync
+
+-----------------------------------------
+GitHub Wiki Automation Script Process
+-----------------------------------------
+Process
+	-Goal:	crawl wiki directory updating sideBare file and
+			non-leaf node files to reflect folder structure
+			
+			The Process:
+						-in each folder level
+							-collect matching file-folder pairs (name=name)
+							-for each pair
+								-enter pair.folder
+								-collect non-paired files (leaf node wikis)
+								-update pair.file with Markdown links to
+								 leaf node wikis
+									-full replace of text contents
+								-track depth, pair.file, and leaf node wikis
+							-update sideBar file with Markdown links to
+							 both non-leaf node wikis and leaf node wikis
+							 to reflect folder structure
+								-full replace of text contents
+				Alt:
+					-consider a recursive approach from leaf nodes back to
+					 top node
+
+				Alt:
+					-consider a sideBar file at each level
+					-each level will show current level wikis and below
+				
+				Alt:
+					-consider delete/create files
+					 rather than replacing content within them
+					-which is faster? research
+				
+				Caveat:
+					-must handle empty nodes
+					-must use correct Markdown (GFM) syntax for links
