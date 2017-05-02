@@ -25,17 +25,16 @@ def traverse_convert_lvl_to_toc_entries(lvls, toc_str, depth, parent_dir):
             if parent_dir != parent:
                 continue
 
-        dirs.sort()
-        for d in dirs:
-            toc_str += mdify_toc_entry(d, depth)
-            toc_str = traverse_convert_lvl_to_toc_entries(lvls, toc_str, depth+1, d)
+        sorted_names = sorted(dirs|files)
 
-        files[:] = [f for f in files if f not in dirs]  # skip any files that match dirs (this wiki page already accounted for via dir)
-        files.sort()
-        for f in files:
-            if f == constants.sidebar:
-                return toc_str
-            toc_str += mdify_toc_entry(f, depth)
+        for n in sorted_names:
+            if n in dirs:
+                toc_str += mdify_toc_entry(n, depth)
+                toc_str = traverse_convert_lvl_to_toc_entries(lvls, toc_str, depth+1, n)
+            elif n in files:
+                if n == constants.sidebar:
+                    return toc_str
+                toc_str += mdify_toc_entry(n, depth)
 
     return toc_str
 

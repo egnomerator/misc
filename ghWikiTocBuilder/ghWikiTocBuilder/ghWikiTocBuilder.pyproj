@@ -5,13 +5,14 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>4c851857-0669-42ea-8aff-55b87b047f72</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>cmd_prompt_ui.py</StartupFile>
+    <StartupFile>toc_my_wiki.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>ghWikiTocBuilder</Name>
     <RootNamespace>ghWikiTocBuilder</RootNamespace>
+    <IsWindowsApplication>False</IsWindowsApplication>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -22,9 +23,6 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="cmd_prompt_ui.py">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="constants.py">
       <SubType>Code</SubType>
     </Compile>
@@ -38,6 +36,7 @@
     <Compile Include="toc_builder.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="toc_my_wiki.py" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['toc_my_wiki.py'],
-             pathex=['C:\\_Dan\\gitwork\\github\\ghWikiTocBuilder\\ghWikiTocBuilder'],
+             pathex=['C:\\_Dan\\gitwork\\github\\misc\\misc\\ghWikiTocBuilder\\ghWikiTocBuilder'],
              binaries=[],
              datas=[],
              hiddenimports=[],

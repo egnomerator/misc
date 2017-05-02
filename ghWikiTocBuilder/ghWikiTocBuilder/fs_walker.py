@@ -34,8 +34,8 @@ def walk_path_get_lvl_info(input_path):
         dl = Dir_level()
         dl.depth = dpth
         dl.parent = root
-        dl.directories = dirs
-        dl.files = fls
+        dl.directories = set(dirs)
+        dl.files = set(fls)
     
         lvls[dpth].append(dl)
     
