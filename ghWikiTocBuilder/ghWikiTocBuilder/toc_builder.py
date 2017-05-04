@@ -42,7 +42,10 @@ def traverse_convert_lvl_to_toc_entries(lvls, toc_str, depth, parent_dir):
 def construct_toc_from_wiki_tree(lvls):
     toc_str = ""
     toc_str = traverse_convert_lvl_to_toc_entries(lvls, "", 0, "")
-    return toc_str
+    # replacing dashes with spaces for displayed link text; does not affect functionality
+    # -of course this means wiki names can't contain dashes. this is an acceptable limitation to me.
+    # -this reverses github's replacement of spaces with dashes for the wikis' file names
+    return toc_str.replace("-", " ")
 
 def lvls(input_path):
     return fs_walker.walk_path_get_lvl_info(input_path)
