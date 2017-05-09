@@ -13,7 +13,7 @@ closing_msg = "Goodbye"
 
 sidebar = "_Sidebar"
 sidebar_file_name = "_Sidebar.md"
-excludes = set([".git"])
+excludes = set([".git", "Images"])
 
 bullet = "* "
 space = " "
